@@ -79,7 +79,7 @@ public class Customer implements Comparable<Customer> {
 
 	public void setCreditCardNumber(String creditCardNumber) {
 		if (creditCardNumber.length() != 16) {
-			throw new RuntimeException("Номер кредитной карты введен неверно");
+			throw new RuntimeException("ГЌГ®Г¬ГҐГ° ГЄГ°ГҐГ¤ГЁГІГ­Г®Г© ГЄГ Г°ГІГ» ГўГўГҐГ¤ГҐГ­ Г­ГҐГўГҐГ°Г­Г®");
 		}
 		creditCardNumber = creditCardNumber.substring(0, 4) + " " + creditCardNumber.substring(4, 8) + " "
 				+ creditCardNumber.substring(8, 12) + " " + creditCardNumber.substring(12, 16);
@@ -104,14 +104,14 @@ public class Customer implements Comparable<Customer> {
 
 	public void setBankAccountNumber(String bankAccountNumber) {
 		if (bankAccountNumber.length() < 16 || bankAccountNumber.length() > 34) {
-			throw new RuntimeException("Номер банковского счета введен неверно");
+			throw new RuntimeException("ГЌГ®Г¬ГҐГ° ГЎГ Г­ГЄГ®ГўГ±ГЄГ®ГЈГ® Г±Г·ГҐГІГ  ГўГўГҐГ¤ГҐГ­ Г­ГҐГўГҐГ°Г­Г®");
 		}
 		this.bankAccountNumber = bankAccountNumber;
 	}
 
 	public String toString() {
-		String s = "id = " + id + " - " + lastName + " " + name + " " + middleName + ". Номер карты: " + creditCardNumber
-				+ ". Номер счета: " + bankAccountNumber;
+		String s = "id = " + id + " - " + lastName + " " + name + " " + middleName + ". ГЌГ®Г¬ГҐГ° ГЄГ Г°ГІГ»: " + creditCardNumber
+				+ ". ГЌГ®Г¬ГҐГ° Г±Г·ГҐГІГ : " + bankAccountNumber;
 		return s;
 
 	}
@@ -123,10 +123,12 @@ public class Customer implements Comparable<Customer> {
 	public static class ByNameComparator implements Comparator<Customer> {
 		@Override
 		public int compare(Customer left, Customer right) {
-			if (left.lastName != right.lastName)
+			if (left.lastName != right.lastName){
 				return left.lastName.compareTo(right.lastName);
-			if (left.name != right.name)
+			}
+			if (left.name != right.name){
 				return left.name.compareTo(right.name);
+			}
 			return left.middleName.compareTo(right.middleName);
 		}
 	}
@@ -161,7 +163,7 @@ public class Customer implements Comparable<Customer> {
 			}
 		}
 		if (isCardNumber == false) {
-			System.out.println("Покупателей с такими картами нет.");
+			System.out.println("ГЏГ®ГЄГіГЇГ ГІГҐГ«ГҐГ© Г± ГІГ ГЄГЁГ¬ГЁ ГЄГ Г°ГІГ Г¬ГЁ Г­ГҐГІ.");
 		}
 	}
 
@@ -184,7 +186,7 @@ public class Customer implements Comparable<Customer> {
 			}
 		}
 		if (j == 0 && customer[0].id != enteredId) {
-			throw new RuntimeException("Покупателя с таким id нету");
+			throw new RuntimeException("ГЏГ®ГЄГіГЇГ ГІГҐГ«Гї Г± ГІГ ГЄГЁГ¬ id Г­ГҐГІГі");
 		}
 		return j;
 	}
